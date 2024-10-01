@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        /* Designed overnight- No rest for the wicked!*/
+        * {
+            overflow-x: hidden;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #262626;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            color: whitesmoke;
+            text-decoration: none;
+        }
+        .navbar {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+        }
+        .nav-branding {
+            font-weight: 400;
+        }
+        .nav-link {
+            transition: 0.7s ease;
+        }
+        .nav-link:hover {
+            color: dodgerblue;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: whitesmoke;
+        }
+        main h1 {
+            color: whitesmoke;
+            text-align: center;
+            justify-content: center;
+            margin:10px;
+        }
+        img {
+           ;
+            display: flex;
+            height: 50%;
+            width: 25%;
+            margin: 30px;
+           border-radius: 35px;
+           justify-content: center;
+           align-items: center;
+        }
+        main {
+            background: url(./97d4b2a6-b8bd-4e59-8b1f-fbf356298cf5.jpeg);
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            background-color: blanchedalmond;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #262626;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+            }
+            .nav-item {
+                margin: 16px 0;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-branding">Logo</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">ABOUT</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">GALLERY</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            document.querySelectorAll(".nav-link").forEach(link => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                });
+            });
+        });
+    </script>
+    <main>
+        <h1>
+           Fully Responsive Navbar Template
+        </h1>
+        <h1>Created by:Lesego Khunou</h1>
+        <h1>FrontEnd Developer</h1>
+        <hr>
+        <br>
+        <h1>Reduce screensize <br>to see our heads shrink</h1>
+       
+    </main>
+</body>
+</html>
